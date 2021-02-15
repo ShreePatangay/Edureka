@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/service/CreditCard.java=UTF-8
+encoding//src/service/CreditCardService.java=UTF-8
+encoding//src/service/CreditCardServiceLocator.java=UTF-8
+encoding//src/service/CreditCardSoapBindingStub.java=UTF-8

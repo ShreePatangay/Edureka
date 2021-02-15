@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service" xmlns:intf="http://service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="approveAmount">
+    <complexType>
+     <sequence>
+      <element name="cc" type="xsd:string"/>
+      <element name="balance" type="xsd:float"/>
+      <element name="amt" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="approveAmountResponse">
+    <complexType>
+     <sequence>
+      <element name="approveAmountReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="approveAmountResponse">
+
+      <wsdl:part element="impl:approveAmountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="approveAmountRequest">
+
+      <wsdl:part element="impl:approveAmount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CreditCard">
+
+      <wsdl:operation name="approveAmount">
+
+         <wsdl:input message="impl:approveAmountRequest" name="approveAmountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:approveAmountResponse" name="approveAmountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CreditCardSoapBinding" type="impl:CreditCard">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="approveAmount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="approveAmountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="approveAmountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CreditCardService">
+
+      <wsdl:port binding="impl:CreditCardSoapBinding" name="CreditCard">
+
+         <wsdlsoap:address location="http://localhost:8080/ServiceProvider/services/CreditCard"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
