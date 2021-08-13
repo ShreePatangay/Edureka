@@ -1,2 +1,2 @@
 # Edureka
-java, spring mvc, hibernate
+java, spring mvc, hibernate, jsp
